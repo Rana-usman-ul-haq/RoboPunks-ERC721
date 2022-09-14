@@ -4,6 +4,7 @@ import Facebook from "./assets/social-media-icons/facebook_32x32.png";
 import Twitter from "./assets/social-media-icons/twitter_32x32.png";
 import Email from "./assets/social-media-icons/email_32x32.png";
 
+
 const NavBar = ({accounts, setAccounts}) => {
     const isConnected = Boolean(accounts[0]);
 

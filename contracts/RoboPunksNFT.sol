@@ -9,7 +9,7 @@ contract RoboPunksNFT is ERC721, Ownable {
     uint256 public totalSupply;
     uint256 public maxSupply;
     uint256 public maxPerWallet;
-    bool public isPublicMintEnabled;
+    bool public isPublicMintEnabled = true;
     string internal baseTokenUri;
     address payable public withdrawWallet;
     mapping(address => uint256) public walletMints;
