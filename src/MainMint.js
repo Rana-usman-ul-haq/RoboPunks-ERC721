@@ -3,7 +3,7 @@ import { ethers, BigNumber } from "ethers";
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 import roboPunksNFT from "./RoboPunksNFT.json";
 
-const roboPunksNFTAddress = "0x40F12ee8526E74beB3c5d9D6338346DAc90F7354";
+const roboPunksNFTAddress = "0xF3ac10B117Ac950676F06F6Eb077AF25C5b7F41E"//0x40F12ee8526E74beB3c5d9D6338346DAc90F7354";
 
 const MaintMint = ({ accounts, setAccounts }) => {
   const [mintAmount, setMintAmount] = useState(1);
@@ -19,8 +19,9 @@ const MaintMint = ({ accounts, setAccounts }) => {
         signer
       );
       try {
-        const response = await contract.mint(BigNumber.from(mintAmount), {
-            value: ethers.utils.parseEther((0.02 * mintAmount).toString()),
+        const response = await contract.mintNft( {
+            value: ethers.utils.parseEther((0.01 * mintAmount).toString()),
+
         });
         console.log("response: ", response);
       } catch (err) {
@@ -40,11 +41,11 @@ const MaintMint = ({ accounts, setAccounts }) => {
   };
 
   return (
-    <Flex justify="center" align="center" height="100vh" paddingBottom="150px">
+    <Flex justify="center" align="center" height="75vh" paddingBottom="150px">
       <Box width="520px">
         <div>
           <Text fontSize="48px" textShadow="0 5px #000000">
-            RoboPunksNFT
+            CUTE DOGIE NFT
           </Text>
           <Text
             fontSize="30px"
@@ -52,7 +53,9 @@ const MaintMint = ({ accounts, setAccounts }) => {
             fontFamily="VT323"
             textShadow="0 2px 2px #000000"
           >
-            This website is for demo purposes only.
+            Mint your very own Dogie NFT.<br></br>
+            Minting will cost 0.01 ETH<br></br>
+            After mitning wait 30 secs and import {roboPunksNFTAddress} in wallet
           </Text>
         </div>
 
@@ -115,6 +118,7 @@ const MaintMint = ({ accounts, setAccounts }) => {
             >
               Mint Now
             </Button>
+
           </div>
         ) : (
           <Text
